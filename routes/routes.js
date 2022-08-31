@@ -1,10 +1,12 @@
 const fs = require('fs');
+const path = require('path');
 
 module.exports = app => {
     fs.readFile('db/db.json', 'utf-8', (err, data) => {
         if (err) throw err;
 
         const notes = JSON.parse(data);
+        
         // Get and Post routes
         app.get('/api/notes', function(req, res) {
             res.json(notes);
@@ -14,6 +16,15 @@ module.exports = app => {
             let newNote = req.body;
             notes.push(newNote);
             updateDb();
+        });
+
+        // View the routes
+        app.get('/notes', function(req, res) {
+            res.sendFile(path.join(__dirname, './public/notes.html'));
+        });
+
+        app.get('*', function(req, res) {
+            res.sendFile(path.join(__dirname, './public/index.html'));
         });
 
         function updateDb() {
