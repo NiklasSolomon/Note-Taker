@@ -5,7 +5,7 @@ module.exports = app => {
         if (err) throw err;
 
         const notes = JSON.parse(data);
-
+        // Get and Post routes
         app.get('/api/notes', function(req, res) {
             res.json(notes);
         });
@@ -14,6 +14,13 @@ module.exports = app => {
             let newNote = req.body;
             notes.push(newNote);
             updateDb();
-        })
+        });
+
+        function updateDb() {
+            fs.writeFile('db/db.json', JSON.stringify(notes), err => {
+                if (err) throw err;
+                return true;
+            });
+        }
     });
 }
