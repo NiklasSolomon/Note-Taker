@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const uuid = require('../helpers/uuid');
 
 module.exports = (app) => {
     
@@ -16,6 +17,7 @@ module.exports = (app) => {
         let newNote = {
           title: req.body.title,
           text: req.body.text,
+          id: uuid()
         };
         
         db.push(newNote);
@@ -25,7 +27,7 @@ module.exports = (app) => {
 
     // Delete route
     app.delete('/api/notes/:id', (req, res) => {
-
+        
         let db = JSON.parse(fs.readFileSync('db/db.json'))
 
         let deleteNotes = db.filter(item => item.id !== req.params.id);
