@@ -1,5 +1,5 @@
 # Note-Taker
-[Link to live webpage]()
+[Link to live webpage](https://niklas-solomon-note-taker.herokuapp.com)
 ## Goal:
 The assignment will showcase the student's knowledge of express and database generation by building an application that can be used to interact with notes.
 
@@ -22,3 +22,10 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 By using Express.js as a back end, we are able to retrieve data from a json file that is dynamically written using the file system from the application's webpage. Each note is given a unique id using the npm package uuid, which we can use to view and delete individual notes. The application can be ran using node server.js.
 
 ## Result:
+The user is able to write notes, giving them a title and a body. The notes can be saved to the application and brought back up by clicking on the generated note. The notes can be deleted as well.  
+
+![Screenshots of functioning application](./Assets/Note%20Taker%20screenshot%201.png)
+![Screenshots of functioning application](./Assets/Note%20Taker%20screenshot%202.png)
+![Screenshots of functioning application](./Assets/Note%20Taker%20screenshot%203.png)  
+
+[Link to github repository](https://github.com/NiklasSolomon/Note-Taker)
